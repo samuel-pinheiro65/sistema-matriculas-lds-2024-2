@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+actor Secretaria as s
+actor Aluno as a
+actor Financeiro as f
+actor Professor as p
+
+package SistemaMatriculas {
+  usecase "Gera Curriculo" as UC1
+  usecase "Consulta Disciplina" as UC2
+  usecase "Matricula na Disciplina" as UC3
+  usecase "Cancela Matricula" as UC4
+  usecase "Cria Cobrança" as UC5
+  usecase "Consulta Alunos Matriculados" as UC6
+}
+s --> UC1
+a --> UC2
+a --> UC3
+a --> UC4
+f --> UC5
+p --> UC6
+
+(UC2) .> (UC1) : include
+(UC3) .> (UC2) : extend
+(UC4) .> (UC3) : include
+(UC5) .> (UC3) : include
+@enduml
