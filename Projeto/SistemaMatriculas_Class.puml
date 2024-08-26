@@ -1,0 +1,60 @@
+@startuml
+class SistemaMatricula {
+  - cursos : List<Curso>
+  - alunos : List<Aluno>
+  + adicinaCurso() : Curso
+  + cadastraAluno() : Aluno
+  + realizaMatricula(aluno : Aluno, disciplina : Disciplina) : Matricula
+}
+
+class Matricula {
+   - numMatricula : long
+   - aluno : Aluno
+   - curso : Curso
+   - disciplina : Disciplinas
+   + getAluno() : Aluno
+   + getCurso() : Curso
+   + getDisciplina() : Disciplina
+}
+
+class Aluno{
+  - nome : String
+  - numMatricula : Matricula
+  - disciplinasMatriculadas : List<Disciplina>
+  + matricularDisciplina() : Disciplina
+  + getNome() : String
+  + getNumMatricula() : Matricula
+  + getDisciplinasMatriculadas() : List<Disciplina>
+}
+
+class Curso{
+  - id : long
+  - nome : String
+  - disciplinas : List<Disciplina>
+  + adicionarDisciplina() : Disciplina
+  + getNome() : String
+  + getDisciplinas() : List<Disciplina>
+}
+
+class Disciplina{
+  - id : long
+  - nome : String
+  - professor : Professor
+  - minAlunos : int
+  - maxAlunos : int
+  - alunosMatriculados : List<Aluno>
+  + matricularAluno() : Aluno
+  + isAtiva() : boolean
+  + getNome() : String
+  + getProfessor() : Professor
+  + getAlunosMatriculados() : List<Aluno>
+}
+
+class Professor{
+  - id : int
+  - nome : String
+  - disciplinasLecionadas : List<Disciplina>
+  + getNome() : String
+  + getAlunosMatriculados() : List<Aluno>
+}
+@enduml
