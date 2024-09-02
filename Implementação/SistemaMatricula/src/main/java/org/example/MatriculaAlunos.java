@@ -3,7 +3,7 @@ package org.example;
 public class MatriculaAlunos {
     public long numMatricula;
     private Aluno aluno;
-    private Curso curso
+    private Curso curso;
     private Disciplina disciplina;
 
     public MatriculaAlunos(long numMatricula, Aluno aluno, Curso curso, Disciplina disciplina) {
@@ -28,6 +28,4 @@ public class MatriculaAlunos {
     public Disciplina getDisciplina() {
         return disciplina;
     }
-}
-
 }

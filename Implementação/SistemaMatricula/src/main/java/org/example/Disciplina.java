@@ -14,6 +14,7 @@ public class Disciplina {
         this.nome = nome;
         this.professor = professor;
         this.alunosMatriculados = new ArrayList<>();
+        professor.adicionarDisciplinaLecionada(this); // Adiciona a disciplina ao professor
     }
 
     public String getNome() {
@@ -31,7 +32,6 @@ public class Disciplina {
     public boolean matricularAluno(Aluno aluno) {
         if (alunosMatriculados.size() < numeroMaximoAlunos) {
             alunosMatriculados.add(aluno);
-            aluno.matricularDisciplina(this);
             return true;
         } else {
             System.out.println("Disciplina sem vagas: " + nome);
@@ -39,8 +39,11 @@ public class Disciplina {
         }
     }
 
+    public void cancelarMatricula(Aluno aluno) {
+        alunosMatriculados.remove(aluno);
+    }
+
     public boolean isAtiva() {
         return alunosMatriculados.size() >= numeroMinimoAlunos;
     }
 }
-
